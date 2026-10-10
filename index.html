@@ -134,6 +134,46 @@
     @media(max-width:950px){.main-grid{grid-template-columns:1fr}.sidebar{position:static}.summary{max-width:none}.hero-content{padding-left:38px}}
     @media(max-width:650px){.shell{width:calc(100% - 28px)}.topbar{padding:16px 0}.saved{display:none}.brand{font-size:15px;gap:8px}.brand-logo{width:34px;height:34px;font-size:19px}.outline-btn{padding:8px 11px;font-size:11px}.hero{display:block;min-height:330px}.hero-content{padding:37px 26px 125px}.hero h1{font-size:47px;max-width:380px;margin-top:15px}.hero-description{font-size:13px;max-width:320px}.hero-art{position:absolute;right:-14px;bottom:-46px;width:255px;height:220px;min-height:0;transform:scale(.60);transform-origin:bottom right;opacity:.75}.hero::after{inset:9px}.main-grid{margin-top:28px;gap:20px}.section-title{align-items:end}.section-title h2{font-size:28px}.primary-btn{padding:12px 15px}.list{gap:11px}.card-image{height:130px}.card-image .emoji{font-size:49px}.card-info{padding:12px}.card-title{font-size:15px}.card-note{font-size:11px}.card-meta{font-size:9px}.price{font-size:15px}.priority-chip{top:8px;left:8px;font-size:9px;padding:5px 7px}.controls{align-items:flex-start}.field-row{grid-template-columns:1fr}.empty{min-height:300px}.summary{padding:20px}.tip-box{margin-top:0}footer{flex-wrap:wrap}}
     @media(max-width:390px){.list{grid-template-columns:1fr}.card-image{height:170px}.hero h1{font-size:40px}.section-title h2{font-size:24px}}
+
+    /* Gift finder: fast, static, and usable even when GitHub Pages has no backend. */
+    .finder-panel{margin:28px 0 0;background:#fffefa;border:1px solid #e6dfd2;border-radius:23px;padding:26px 29px 29px;box-shadow:0 8px 30px #26372c0b;position:relative;overflow:hidden}
+    .finder-panel::before{content:'✦';position:absolute;right:24px;top:13px;color:#dec898;font-size:28px;opacity:.85;pointer-events:none}
+    .finder-lead{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:19px}
+    .finder-lead h2{font:normal clamp(26px,4vw,33px) Georgia,serif;margin:3px 0 4px}
+    .finder-lead p:last-child{margin:0;color:#758276;font-size:13px}
+    .finder-inputs{display:grid;grid-template-columns:minmax(100px,.55fr) minmax(165px,1fr) minmax(170px,.9fr);gap:12px}
+    .finder-panel .field{margin-bottom:7px}
+    .finder-panel .field label{font-size:12px}
+    .finder-panel .field input,.finder-panel .field select{min-height:43px;background:white}
+    .hobby-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:17px 0 10px;font-size:12px;font-weight:900;color:#435e4d}
+    .hobby-heading small{color:#929b8f;font-weight:normal;font-size:11px}
+    .hobby-cloud{display:flex;gap:8px;flex-wrap:wrap}
+    .hobby-chip{border:1px solid #dce2d9;border-radius:50px;background:#f8f8f0;color:#526356;font-size:12px;font-weight:800;padding:9px 13px;line-height:1.2;transition:.12s}
+    .hobby-chip:hover{border-color:#9db6a1}
+    .hobby-chip[aria-pressed="true"]{background:#194c3b;border-color:#194c3b;color:#fff}
+    .finder-lastrow{display:flex;align-items:end;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:16px}
+    .finder-lastrow .field{min-width:min(290px,100%);flex:1;margin:0}
+    .finder-lastrow .primary-btn{min-height:43px}
+    .finder-note{color:#7e897c;font-size:11px;line-height:1.55;margin:15px 0 0}
+    .finder-results{margin-top:25px;border-top:1px solid #ece9df;padding-top:20px}
+    .finder-results-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px;flex-wrap:wrap}
+    .finder-results-top h3{font:normal 24px Georgia,serif;margin:0}
+    .finder-results-top .secondary-btn{padding:8px 14px;font-size:11px}
+    .ideas-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}
+    .idea-card{border:1px solid #e7e4db;background:#fff;border-radius:15px;padding:15px;min-width:0;display:flex;flex-direction:column;box-shadow:0 4px 12px #194c3b09}
+    .idea-emoji{width:47px;height:47px;border-radius:14px;background:#ecf2e9;display:grid;place-items:center;font-size:25px;margin-bottom:12px}
+    .idea-card:nth-child(4n+2) .idea-emoji{background:#fbede7}.idea-card:nth-child(4n+3) .idea-emoji{background:#f8efd8}
+    .idea-title{font-size:14px;font-weight:900;color:#254333;line-height:1.35;margin:0 0 7px;overflow-wrap:anywhere}
+    .idea-sub{font-size:11px;color:#7b877d;margin:0 0 12px}
+    .idea-buttons{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:auto;align-items:center}
+    .idea-add{border:0;background:#b14943;color:white;border-radius:9px;min-height:36px;padding:6px 8px;font-size:11px;font-weight:900}
+    .idea-add:disabled{background:#e7ece6;color:#568164;cursor:default}
+    .idea-shop{font-size:11px;font-weight:900;color:#a23f3c;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+    .finder-empty{background:#f1f5ef;padding:18px;border-radius:13px;color:#506757;font-size:13px}
+    @media(max-width:950px){.ideas-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:650px){.finder-panel{padding:21px 17px 24px;margin-top:17px}.finder-inputs{grid-template-columns:1fr 1fr;gap:10px}.finder-inputs .field:last-child{grid-column:1/-1}.ideas-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.idea-card{padding:12px}.idea-emoji{margin-bottom:9px}.idea-title{font-size:13px}.finder-lastrow .field{min-width:100%}.finder-lastrow .primary-btn{width:100%}.hobby-chip{padding:9px 11px}}
+    @media(max-width:380px){.ideas-grid{grid-template-columns:1fr}.idea-buttons{grid-template-columns:1fr auto}}
+    @media print {.finder-panel{display:none!important}}
     [hidden] {display:none!important;}
     @media print {body{background:#fff}.topbar,.outline-btn,.primary-btn,.controls,.sidebar .summary-actions,.tip-box,.card-actions,footer,.toast,.close{display:none!important}.shell{width:100%}.hero{min-height:160px;box-shadow:none}.hero-content{padding:25px 38px}.hero-art{display:none}.main-grid{display:block;margin:22px 0}.sidebar{margin-top:15px}.summary{box-shadow:none}.gift-card{break-inside:avoid}.list{grid-template-columns:repeat(3,1fr)}.empty{display:none}}
     @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
@@ -155,6 +195,26 @@
       <div class="hero-art" aria-hidden="true">
         <span class="orb one"></span><span class="orb two"></span><span class="star s1">✦</span><span class="star s2">✧</span><span class="star s3">✦</span><span class="star s4">✶</span><span class="pine a"></span><span class="pine b"></span>
         <div class="gift tall"><span class="bow">❧</span></div><div class="gift big"><span class="bow">❧</span></div><div class="gift small"><span class="bow">❧</span></div>
+      </div>
+    </section>
+
+    <section class="finder-panel" id="giftFinder" aria-label="Find gift ideas for your wishlist">
+      <div class="finder-lead"><div><p class="kicker" style="margin-bottom:4px">🎁 THE GIFT FINDER</p><h2>Find gifts that feel like you.</h2><p>Age + hobbies = your own little Santa-approved idea feed ✨</p></div></div>
+      <form id="finderForm">
+        <div class="finder-inputs">
+          <div class="field"><label for="finderAge">Your age</label><input id="finderAge" type="number" inputmode="numeric" min="5" max="100" placeholder="e.g. 14" required aria-describedby="finderAgeHelp"><span class="form-help" id="finderAgeHelp">Ages 5–100</span></div>
+          <div class="field"><label for="finderGender">Gender (optional)</label><select id="finderGender"><option value="any">Any / skip</option><option value="girl">Girl / woman</option><option value="boy">Boy / man</option><option value="nonbinary">Nonbinary</option></select></div>
+          <div class="field"><label for="finderBudget">Approx. budget</label><select id="finderBudget"><option value="0">Any price</option><option value="25">Under $25</option><option value="50">Under $50</option><option value="100">Under $100</option><option value="200">Under $200</option></select></div>
+        </div>
+        <div class="hobby-heading"><span>Your hobbies — pick as many as you want</span><small>Pick a few for the best matches</small></div>
+        <div class="hobby-cloud" id="hobbyCloud" aria-label="Choose hobbies"></div>
+        <div class="finder-lastrow"><div class="field"><label for="finderOther">Something else you're into?</label><input id="finderOther" maxlength="120" placeholder="e.g. anime, chess, volleyball" autocomplete="off"><span class="form-help">Separate hobbies with commas. We’ll suggest ideas for those, too.</span></div><button class="primary-btn" type="submit" id="findGiftsButton">✦ Find my gifts</button></div>
+      </form>
+      <p class="finder-note">We match a curated set of ideas to your age, hobbies and budget — not a live product database. <b>Shop options</b> opens current shopping search results; listed prices are rough estimates. Gender is optional and never limits what you can choose. Your preferences stay on this device, not in shared links.</p>
+      <div id="finderResults" class="finder-results" hidden>
+        <div class="finder-results-top"><div><p class="kicker" style="margin-bottom:4px">MATCHED FOR YOU</p><h3 id="ideasHeading">Your gift ideas 🎅</h3></div><button id="moreGiftIdeas" class="secondary-btn" type="button">🔄 More ideas</button></div>
+        <div class="ideas-grid" id="ideasGrid" aria-live="polite"></div>
+        <p class="finder-note" style="margin-top:13px">Tap <b>+ Quick add</b> to save an idea instantly. You can edit its name, exact price or shopping link later. For a specific product, open <b>Shop options ↗</b>.</p>
       </div>
     </section>
     <main class="main-grid">
@@ -265,6 +325,247 @@
         notify('That shared link is invalid or incomplete.');
       }
     }
+
+    const FINDER_KEY='nice-list-gift-finder-v2';
+    const HOBBIES=[['gaming','🎮 Gaming'],['minecraft','⛏️ Minecraft'],['siege','💥 Siege / FPS'],['tech','💻 Tech'],['sports','🏀 Sports'],['soccer','⚽ Soccer'],['basketball','🏀 Basketball'],['fitness','💪 Fitness'],['fashion','👟 Fashion'],['beauty','🧴 Beauty'],['music','🎧 Music'],['art','🎨 Art'],['reading','📚 Books'],['anime','🌸 Anime'],['lego','🧱 LEGO'],['outdoors','🏕️ Outdoors'],['photography','📸 Photos'],['cooking','🍪 Cooking'],['dance','🩰 Dance'],['pets','🐾 Pets'],['cars','🚙 Cars'],['collecting','🃏 Collecting'],['crafts','🧵 Crafts'],['science','🔬 Science']];
+    // Estimated prices are only for approximate budget filtering. Shopping search shows real options.
+    const RAW_IDEAS=[
+      ['Gaming headset','gaming,siege,tech',10,100,'Tech',45,'🎧'],
+      ['RGB gaming desk mat','gaming,siege,tech',9,100,'Games & gaming',20,'🌈'],
+      ['Mechanical keyboard','gaming,siege,tech',12,100,'Tech',80,'⌨️'],
+      ['Controller charging dock','gaming',10,100,'Games & gaming',28,'🎮'],
+      ['Gaming mouse','gaming,siege,tech',10,100,'Tech',35,'🖱️'],
+      ['Thumb grip caps','gaming,siege',8,100,'Games & gaming',12,'🕹️'],
+      ['Gaming monitor light bar','gaming,tech',13,100,'Tech',55,'🖥️'],
+      ['Gaming chair cushion','gaming',12,100,'Room & home',28,'🪑'],
+      ['LED room lights','gaming,tech,music,fashion',9,100,'Room & home',22,'✨'],
+      ['Digital game gift card','gaming,minecraft,siege',8,100,'Games & gaming',25,'🎟️'],
+      ['Minecraft LEGO set','minecraft,lego,gaming',7,100,'Games & gaming',40,'⛏️'],
+      ['Minecraft plush','minecraft,gaming',5,100,'Games & gaming',19,'🐷'],
+      ['Minecraft torch lamp','minecraft,gaming',7,100,'Room & home',28,'🔥'],
+      ['Minecraft pixel art kit','minecraft,art,crafts',7,100,'Books & hobbies',18,'🧩'],
+      ['Minecraft wall poster','minecraft,gaming',7,100,'Room & home',16,'🖼️'],
+      ['FPS gaming keycaps','siege,gaming',12,100,'Tech',26,'⌨️'],
+      ['FPS gamer hoodie','siege,gaming,fashion',13,100,'Clothes & shoes',45,'🧥'],
+      ['Desk microphone','gaming,siege,tech,music',12,100,'Tech',65,'🎙️'],
+      ['Portable power bank','tech,gaming,outdoors,photography',10,100,'Tech',30,'🔋'],
+      ['Bluetooth speaker','tech,music,outdoors',8,100,'Tech',45,'🔊'],
+      ['Wireless earbuds','tech,music,fitness',11,100,'Tech',65,'🎧'],
+      ['Mini projector','tech,movies,gaming',13,100,'Tech',120,'📽️'],
+      ['Phone stand and charger','tech,photography,gaming',10,100,'Tech',26,'📱'],
+      ['Smart light bulb set','tech,gaming',12,100,'Tech',25,'💡'],
+      ['Instant print camera','photography,fashion,art',10,100,'Tech',90,'📷'],
+      ['Phone camera lens kit','photography,tech',12,100,'Tech',25,'📸'],
+      ['Photo album scrapbook','photography,art,crafts',6,100,'Books & hobbies',20,'📔'],
+      ['Tripod with phone mount','photography,tech',10,100,'Tech',25,'📹'],
+      ['Football or soccer ball','sports,soccer,outdoors',6,100,'Sports & outdoors',25,'⚽'],
+      ['Soccer training cones','soccer,sports,fitness',7,100,'Sports & outdoors',19,'🥅'],
+      ['Agility ladder','soccer,sports,fitness',8,100,'Sports & outdoors',24,'🏃'],
+      ['Mini soccer goal','soccer,sports,outdoors',6,100,'Sports & outdoors',50,'🥅'],
+      ['Team jersey','soccer,sports,fashion',8,100,'Clothes & shoes',75,'👕'],
+      ['Sports water bottle','soccer,sports,fitness,outdoors,dance',6,100,'Sports & outdoors',25,'🚰'],
+      ['Basketball','basketball,sports,outdoors',6,100,'Sports & outdoors',30,'🏀'],
+      ['Basketball mini hoop','basketball,sports',7,100,'Sports & outdoors',30,'🏀'],
+      ['Basketball training socks','basketball,sports,fashion',8,100,'Clothes & shoes',18,'🧦'],
+      ['Resistance bands kit','fitness,soccer,sports,dance',12,100,'Sports & outdoors',22,'💪'],
+      ['Yoga or workout mat','fitness,dance,sports',10,100,'Sports & outdoors',29,'🧘'],
+      ['Gym bag','fitness,sports,soccer,dance',11,100,'Sports & outdoors',40,'🎒'],
+      ['Foam roller','fitness,dance,sports',11,100,'Sports & outdoors',25,'🛼'],
+      ['Gym gloves','fitness,sports',14,100,'Sports & outdoors',19,'🧤'],
+      ['Dance warm-up booties','dance,fitness,fashion',8,100,'Clothes & shoes',48,'🩰'],
+      ['Dance stretch band','dance,fitness',7,100,'Sports & outdoors',18,'🎀'],
+      ['Ballet-inspired tote bag','dance,fashion',9,100,'Clothes & shoes',25,'👜'],
+      ['Oversized hoodie','fashion,sports,gaming,dance',11,100,'Clothes & shoes',44,'🧥'],
+      ['Shoe cleaning kit','fashion,sports',11,100,'Clothes & shoes',19,'👟'],
+      ['Crossbody bag','fashion,photography',11,100,'Clothes & shoes',38,'👜'],
+      ['Beanie and scarf set','fashion,outdoors',8,100,'Clothes & shoes',28,'🧣'],
+      ['Sneaker display shelves','fashion,collecting',13,100,'Room & home',46,'👟'],
+      ['Jewelry organizer','fashion,collecting',10,100,'Room & home',24,'💎'],
+      ['Skincare gift set','beauty,fashion',12,100,'Beauty & self-care',28,'🧴'],
+      ['Lip balm gift set','beauty,fashion',8,100,'Beauty & self-care',15,'💋'],
+      ['Hair styling kit','beauty,fashion,dance',12,100,'Beauty & self-care',44,'💇'],
+      ['Satin pillowcase','beauty,fashion',9,100,'Room & home',21,'🛏️'],
+      ['Fragrance discovery set','beauty,fashion',13,100,'Beauty & self-care',37,'🌷'],
+      ['Nail art kit','beauty,art,crafts',10,100,'Beauty & self-care',27,'💅'],
+      ['Mini keyboard instrument','music,tech,art',9,100,'Books & hobbies',85,'🎹'],
+      ['Music headphones','music,tech',10,100,'Tech',55,'🎧'],
+      ['Vinyl record','music,collecting',13,100,'Books & hobbies',32,'💿'],
+      ['Portable karaoke microphone','music',7,100,'Tech',29,'🎤'],
+      ['Music stand','music',10,100,'Books & hobbies',30,'🎼'],
+      ['Sketchbook and pencils','art,crafts,anime',5,100,'Books & hobbies',18,'✏️'],
+      ['Alcohol marker art set','art,anime,crafts',10,100,'Books & hobbies',35,'🎨'],
+      ['Watercolor painting set','art,crafts',7,100,'Books & hobbies',27,'🖌️'],
+      ['Digital drawing tablet','art,anime,tech',11,100,'Tech',100,'🖍️'],
+      ['Clay sculpting kit','art,crafts',7,100,'Books & hobbies',26,'🪄'],
+      ['Manga art guide','anime,art,reading',9,100,'Books & hobbies',19,'📖'],
+      ['Manga volume or box set','anime,reading,collecting',11,100,'Books & hobbies',49,'📚'],
+      ['Anime figure','anime,collecting',10,100,'Books & hobbies',29,'🌸'],
+      ['Anime-themed desk mat','anime,gaming',10,100,'Room & home',19,'🎴'],
+      ['Bookstore gift card','reading,art',6,100,'Books & hobbies',25,'📚'],
+      ['Book light','reading',7,100,'Books & hobbies',17,'🔦'],
+      ['Book sleeve','reading,crafts',10,100,'Books & hobbies',17,'📕'],
+      ['Reading pillow','reading',8,100,'Room & home',35,'🛋️'],
+      ['Book journal','reading,crafts',11,100,'Books & hobbies',18,'📓'],
+      ['LEGO botanical set','lego,crafts,art',12,100,'Books & hobbies',45,'🌻'],
+      ['LEGO car set','lego,cars',7,100,'Books & hobbies',38,'🚘'],
+      ['LEGO architecture set','lego,art',12,100,'Books & hobbies',79,'🏛️'],
+      ['LEGO mini build set','lego',5,100,'Books & hobbies',17,'🧱'],
+      ['Camping lantern','outdoors,camping',8,100,'Sports & outdoors',25,'🏮'],
+      ['Insulated camping mug','outdoors,cooking',11,100,'Sports & outdoors',22,'☕'],
+      ['Portable hammock','outdoors',12,100,'Sports & outdoors',35,'🌳'],
+      ['Day hiking backpack','outdoors,fitness',12,100,'Sports & outdoors',55,'🎒'],
+      ['Bird watching binoculars','outdoors,science',10,100,'Sports & outdoors',42,'🔭'],
+      ['Baking starter kit','cooking,crafts',7,100,'Books & hobbies',30,'🧁'],
+      ['Mini waffle maker','cooking',12,100,'Room & home',23,'🧇'],
+      ['Recipe book and journal','cooking,reading',9,100,'Books & hobbies',19,'📒'],
+      ['Decorating piping kit','cooking,art',9,100,'Books & hobbies',18,'🍰'],
+      ['Personalized pet portrait kit','pets,art',11,100,'Books & hobbies',25,'🐶'],
+      ['Pet treat puzzle','pets',8,100,'Other',21,'🐕'],
+      ['Pet photo frame','pets,photography',7,100,'Room & home',18,'🐾'],
+      ['Car model building kit','cars,lego,crafts',10,100,'Books & hobbies',35,'🏎️'],
+      ['Die-cast model car','cars,collecting',8,100,'Books & hobbies',24,'🚗'],
+      ['Car detailing kit','cars',16,100,'Other',35,'🚙'],
+      ['Trading card binder','collecting,anime,sports',7,100,'Books & hobbies',22,'🃏'],
+      ['Display case for collectibles','collecting,lego,anime',10,100,'Room & home',49,'🏆'],
+      ['Mystery collectible figure','collecting,anime',8,100,'Books & hobbies',20,'🎁'],
+      ['DIY bracelet kit','crafts,fashion,art',7,100,'Books & hobbies',16,'🧵'],
+      ['Mini sewing machine','crafts,fashion',13,100,'Books & hobbies',80,'🪡'],
+      ['Crochet starter kit','crafts,art',10,100,'Books & hobbies',25,'🧶'],
+      ['Beginner telescope','science,outdoors',9,100,'Books & hobbies',99,'🔭'],
+      ['Science experiment kit','science,tech',6,100,'Books & hobbies',35,'🔬'],
+      ['Coding robot kit','science,tech,gaming',10,100,'Tech',85,'🤖'],
+      ['Wireless phone charger','tech,gaming,photography,music',12,100,'Tech',23,'⚡'],
+      ['Plush throw blanket','reading,beauty,gaming,fashion',6,100,'Room & home',27,'🧸'],
+      ['Mini desk fridge','gaming,beauty,tech',12,100,'Room & home',62,'🧊'],
+      ['Room poster set','music,anime,photography,fashion',8,100,'Room & home',17,'🖼️'],
+      ['Board game for friends','gaming,sports,reading',8,100,'Games & gaming',30,'🎲'],
+      ['Puzzle challenge game','gaming,science,reading',8,100,'Games & gaming',20,'🧩']
+    ];
+    const GIFT_IDEAS=RAW_IDEAS.map(([name,topics,min,max,category,estimate,emoji])=>({name,hobbies:topics.split(','),min,max,category,estimate,emoji}));
+    let finderProfile={age:'',gender:'any',budget:'0',hobbies:[],other:''};
+    let foundIdeas=[],ideaPage=0;
+    try {
+      const raw=JSON.parse(localStorage.getItem(FINDER_KEY));
+      if(raw&&typeof raw==='object'){
+        finderProfile={age:String(raw.age||''),gender:['any','girl','boy','nonbinary'].includes(raw.gender)?raw.gender:'any',budget:['0','25','50','100','200'].includes(String(raw.budget))?String(raw.budget):'0',hobbies:Array.isArray(raw.hobbies)?raw.hobbies.filter(h=>HOBBIES.some(([id])=>id===h)):[],other:String(raw.other||'').slice(0,120)};
+      }
+    }catch(e){}
+    function paintHobbies(){
+      $('hobbyCloud').innerHTML=HOBBIES.map(([id,label])=>`<button type="button" class="hobby-chip" data-hobby="${id}" aria-pressed="${finderProfile.hobbies.includes(id)}">${label}</button>`).join('');
+    }
+    function shopSearch(idea){
+      // Clothing search can respect a requested gender/age without hiding any gift ideas.
+      let query=idea.name;
+      if(idea.category==='Clothes & shoes'){
+        const young=Number(finderProfile.age)<18;
+        const gender=finderProfile.gender;
+        if(gender==='girl')query+=' '+(young?'teen girls':'women');
+        else if(gender==='boy')query+=' '+(young?'teen boys':'men');
+        else if(gender==='nonbinary')query+=' unisex';
+      }
+      return 'https://www.google.com/search?tbm=shop&q='+encodeURIComponent(query);
+    }
+    const simple=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+    function findMatchingIdeas(){
+      const age=Math.min(100,Math.max(5,Number(finderProfile.age)||15));
+      const hobbies=finderProfile.hobbies;
+      const custom=finderProfile.other.split(',').map(x=>x.trim().slice(0,35)).filter(Boolean).slice(0,5);
+      const budget=Number(finderProfile.budget);
+      const list=GIFT_IDEAS.filter(x=>age>=x.min&&age<=x.max&&(!budget||x.estimate<=budget));
+      let matches=list.map(idea=>{
+        let score=1;
+        const matched=idea.hobbies.filter(h=>hobbies.includes(h));
+        if(hobbies.length)score+=matched.length*35;
+        if(custom.length)score+=custom.filter(h=>idea.name.toLowerCase().includes(h.toLowerCase())||idea.hobbies.some(t=>t.includes(h.toLowerCase())||h.toLowerCase().includes(t))).length*26;
+        if(!hobbies.length&&!custom.length)score+=['gaming','tech','sports','reading','music','art','fashion'].some(h=>idea.hobbies.includes(h))?2:0;
+        if(age<=10&&idea.min<=7)score+=2;
+        if(age>=18&&idea.min>=12)score+=1;
+        return {...idea,score};
+      });
+      if(hobbies.length||custom.length) matches.sort((a,b)=>b.score-a.score||a.name.localeCompare(b.name));
+      else matches.sort((a,b)=>b.score-a.score||a.name.localeCompare(b.name));
+      // Unlisted hobbies still get tailored ideas without using or inventing a live product service.
+      custom.forEach((h,i)=>{
+        if(h.length<2)return;
+        const pretty=h.charAt(0).toUpperCase()+h.slice(1);
+        [
+          [`${pretty} starter kit`,'Books & hobbies','🎁'],
+          [`${pretty} accessories`,'Other','✨'],
+          [`${pretty} themed hoodie`,'Clothes & shoes','🧥'],
+          [`${pretty} gift set`,'Other','🎀']
+        ].forEach(([name,category,emoji],j)=>{
+          if(!matches.some(x=>simple(x.name)===simple(name))) matches.push({name,category,emoji,estimate:null,hobbies:[],score:100-i*5-j,min:5,max:100});
+        });
+      });
+      matches.sort((a,b)=>b.score-a.score||a.name.localeCompare(b.name));
+      // Mix hobbies to avoid showing only gaming gear for someone with several interests.
+      const chosen=[],seen=new Map();
+      while(matches.length){
+        let best=0,bestScore=-Infinity;
+        matches.forEach((x,i)=>{
+          const main=x.hobbies.find(h=>hobbies.includes(h))||x.hobbies[0]||simple(x.name).split(' ')[0];
+          const v=x.score-(seen.get(main)||0)*11-Math.floor(i/50);
+          if(v>bestScore){bestScore=v;best=i;}
+        });
+        const x=matches.splice(best,1)[0];chosen.push(x);
+        const main=x.hobbies.find(h=>hobbies.includes(h))||x.hobbies[0]||simple(x.name).split(' ')[0];seen.set(main,(seen.get(main)||0)+1);
+      }
+      return chosen;
+    }
+    function showIdeas(){
+      $('finderResults').hidden=false;
+      const start=(ideaPage*12)%Math.max(foundIdeas.length,1);
+      let ideas=foundIdeas.slice(start,start+12);
+      if(ideas.length<12)ideas=ideas.concat(foundIdeas.slice(0,12-ideas.length));
+      const seen=new Set();ideas=ideas.filter(x=>!seen.has(x.name)&&seen.add(x.name));
+      const saved=new Set(state.items.map(x=>simple(x.name)));
+      $('ideasHeading').textContent=`${foundIdeas.length} ideas picked for you 🎅`;
+      $('ideasGrid').innerHTML=ideas.length?ideas.map(idea=>{
+        const already=saved.has(simple(idea.name));
+        const id=foundIdeas.indexOf(idea);
+        return `<article class="idea-card"><div class="idea-emoji" aria-hidden="true">${idea.emoji}</div><h4 class="idea-title">${escapeHtml(idea.name)}</h4><p class="idea-sub">${idea.estimate===null?'Prices vary':`About ${formatMoney(idea.estimate)} · est.`}</p><div class="idea-buttons"><button type="button" class="idea-add" data-quick-add="${id}" ${already?'disabled':''}>${already?'✓ Added':'＋ Quick add'}</button><a class="idea-shop" target="_blank" rel="noopener noreferrer" href="${escapeHtml(shopSearch(idea))}" aria-label="Search current shopping options for ${escapeHtml(idea.name)}">Shop ↗</a></div></article>`;
+      }).join(''):'<div class="finder-empty">No ideas in that price range. Try Any price or a higher budget 🎁</div>';
+      $('moreGiftIdeas').hidden=foundIdeas.length<=12;
+    }
+    function saveFinderProfile(){
+      try{localStorage.setItem(FINDER_KEY,JSON.stringify(finderProfile));}catch(e){}
+    }
+    function runGiftFinder(){
+      const age=Number($('finderAge').value);
+      if(!Number.isInteger(age)||age<5||age>100){notify('Enter an age between 5 and 100.');$('finderAge').focus();return;}
+      finderProfile.age=String(age);
+      finderProfile.gender=$('finderGender').value;
+      finderProfile.budget=$('finderBudget').value;
+      finderProfile.other=$('finderOther').value.trim();
+      saveFinderProfile();
+      foundIdeas=findMatchingIdeas();ideaPage=0;showIdeas();
+      if(!foundIdeas.length)notify('Try a bigger budget for more ideas!');
+    }
+    function setupFinder(){
+      if(sharedView){$('giftFinder').hidden=true;return;}
+      $('finderAge').value=finderProfile.age;
+      $('finderGender').value=finderProfile.gender;
+      $('finderBudget').value=finderProfile.budget;
+      $('finderOther').value=finderProfile.other;
+      paintHobbies();
+      $('hobbyCloud').addEventListener('click',event=>{
+        const button=event.target.closest('[data-hobby]');if(!button)return;
+        const h=button.dataset.hobby;
+        finderProfile.hobbies=finderProfile.hobbies.includes(h)?finderProfile.hobbies.filter(x=>x!==h):[...finderProfile.hobbies,h];
+        button.setAttribute('aria-pressed',String(finderProfile.hobbies.includes(h)));
+        saveFinderProfile();
+      });
+      $('finderForm').addEventListener('submit',e=>{e.preventDefault();runGiftFinder();});
+      $('moreGiftIdeas').addEventListener('click',()=>{ideaPage++;showIdeas();});
+      $('ideasGrid').addEventListener('click',event=>{
+        const button=event.target.closest('[data-quick-add]');if(!button||sharedView)return;
+        const idea=foundIdeas[Number(button.dataset.quickAdd)];if(!idea)return;
+        if(state.items.some(x=>simple(x.name)===simple(idea.name))){showIdeas();return;}
+        const item={id:String(Date.now())+'-'+Math.random().toString(36).slice(2,8),name:idea.name,category:idea.category,priority:'love',price:null,store:'Shopping options',link:shopSearch(idea),image:'',notes:'Suggested by Gift Finder • price shown in suggestions is only an estimate. Edit to add the exact item you want.',createdAt:Date.now()};
+        state.items.push(item);persist();render();showIdeas();notify('Added to your list! 🎁');
+      });
+      if(finderProfile.age && (finderProfile.hobbies.length||finderProfile.other)){runGiftFinder();}
+    }
     function persist() { if(sharedView) return; try { localStorage.setItem(KEY,JSON.stringify(state)); } catch(e){ notify('This browser could not save your changes. Try a regular browser tab.'); } }
     function safeUrl(raw) { if(!raw || typeof raw!=='string') return ''; try { const u = new URL(raw.trim()); return (u.protocol==='https:' || u.protocol==='http:') ? u.href : ''; } catch(e) { return ''; } }
     function escapeHtml(value) { return String(value ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
@@ -370,6 +671,7 @@
     const today=new Date(),year=today.getFullYear();$('yearLabel').textContent=String(year);const christmas=new Date(year,11,25);if(today.getMonth()===11&&today.getDate()===25){$('countdownLabel').textContent='Merry Christmas! 🎄';}else{if(today>christmas)christmas.setFullYear(year+1);const days=Math.ceil((new Date(christmas.getFullYear(),christmas.getMonth(),christmas.getDate())-new Date(today.getFullYear(),today.getMonth(),today.getDate()))/86400000);$('countdownLabel').textContent=`${days} days until Christmas`; $('yearLabel').textContent=String(christmas.getFullYear());}
     function enableSharedView(){
       document.querySelector('.brand').addEventListener('click', ev=>{ev.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+      $('giftFinder').hidden=true;
       $('addItemButton').hidden=true;
       $('editNameButton').hidden=true;
       document.querySelector('.saved').innerHTML='<i></i> shared list · view only';
@@ -381,6 +683,7 @@
       $('downloadButton').textContent='⇩ Download this list';
     }
     loadSharedUrl();
+    setupFinder();
     render();
   })();
   </script>
