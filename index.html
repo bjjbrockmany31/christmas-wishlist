@@ -100,6 +100,12 @@
     .summary-actions {display:grid;gap:8px;}
     .summary-button {border:1px solid #d8e0d8;border-radius:10px;background:#fff;color:var(--green);min-height:43px;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;gap:9px;}
     .summary-button:hover {background:#eff3ed;}
+    .share-description{font-size:14px;color:#506257;margin:0 0 15px;line-height:1.65}
+    .share-preview{background:#f2f5ee;border:1px solid #e2e8dd;border-radius:14px;padding:14px 16px;margin-bottom:17px;display:flex;align-items:center;gap:11px;color:#194c3b}
+    .share-preview .share-emoji{font-size:28px}.share-preview strong{font-size:14px;display:block}.share-preview small{color:#6c7c6c;font-size:11px}
+    .share-url-box{width:100%;height:94px;resize:none;border:1px solid #c8d8c9;border-radius:12px;font:12px ui-monospace,SFMono-Regular,Consolas,monospace;background:white;color:#34513f;padding:12px;overflow-wrap:anywhere}
+    .share-buttons{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:13px}.share-buttons button{min-height:45px}.share-buttons .primary-btn{grid-column:1/-1;border-radius:10px}
+    .share-explain{font-size:12px;color:#697a6d;margin:17px 0 0;line-height:1.6}.share-explain b{color:#244934}.share-feedback{min-height:22px;font-size:12px;font-weight:800;color:#246443;margin:7px 0 0}
     .tip-box {margin-top:18px;background:#ebeadf;border-radius:16px;padding:17px 18px;color:#415449;font-size:12px;line-height:1.65;}
     .tip-box b {display:block;font-size:13px;margin-bottom:4px;color:var(--green);}
     .empty {grid-column:1/-1;min-height:365px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:2px dashed #d4dcd0;border-radius:20px;background:linear-gradient(135deg,#fffdf9,#f8f5eb);padding:35px 23px;}
@@ -170,9 +176,9 @@
           <p class="summary-sub">A little holiday magic, all in one place.</p>
           <div class="stats"><div class="stat"><div class="stat-number" id="giftCount">0</div><div class="stat-label">Wishes saved</div></div><div class="stat"><div class="stat-number" id="mustCount">0</div><div class="stat-label">Top picks ⭐</div></div></div>
           <div class="price-summary"><div><span>Estimated list total</span><small>Only gifts with prices</small></div><strong id="priceTotal">$0</strong></div>
-          <div class="summary-actions"><button class="summary-button" id="shareButton" type="button">↗ Share my list</button><button class="summary-button" id="downloadButton" type="button">⇩ Download shareable page</button><button class="summary-button" id="printButton" type="button">▤ Print / save as PDF</button></div>
+          <div class="summary-actions"><button class="summary-button" id="shareButton" type="button">🎁 Get a shareable link</button><button class="summary-button" id="downloadButton" type="button">⇩ Download shareable page</button><button class="summary-button" id="printButton" type="button">▤ Print / save as PDF</button></div>
         </div>
-        <div class="tip-box"><b>✦ How it works</b>Add your gift ideas, paste links to the exact things you want, and star your favorites. Everything saves automatically in this browser. When hosted online, Share creates a link with your current wishes for family and friends. Anyone with the link can view that snapshot. For an HTML copy, use Download shareable page.</div>
+        <div class="tip-box"><b>✦ How it works</b>Add your gift ideas, paste links to the exact things you want, and star your favorites. Everything saves automatically in this browser. To send your real gifts to family, use <b>Get a shareable link</b> and copy the special link it makes. Sending just the website homepage won’t show your saved gifts on their devices. Shared links show a read-only snapshot; get a new link after edits.</div>
       </aside>
     </main>
     <footer><span>Made with love, hot cocoa & a sprinkle of holiday magic ♡</span><span>Santa, if you're reading this... 👀</span></footer>
@@ -194,6 +200,18 @@
     <div class="modal-header"><div><p class="kicker" style="margin-bottom:5px">MAKE IT YOURS</p><h2 id="nameTitle">Personalize your list</h2></div><button class="close" type="button" data-close="nameDialog" aria-label="Close">×</button></div>
     <form class="modal-body" id="nameForm"><div class="field"><label for="ownerName">Your name (optional)</label><input id="ownerName" maxlength="40" placeholder="Your first name"></div><div class="form-actions"><button class="secondary-btn" type="button" data-close="nameDialog">Cancel</button><button class="primary-btn" type="submit">Save name</button></div></form>
   </dialog>
+  <dialog id="shareDialog" aria-labelledby="shareTitle">
+    <div class="modal-header"><div><p class="kicker" style="margin-bottom:5px">YOUR GIFTS, READY TO SEND</p><h2 id="shareTitle">Share the magic 🎄</h2></div><button type="button" class="close" data-close="shareDialog" aria-label="Close">×</button></div>
+    <div class="modal-body">
+      <p class="share-description">This is a link to <strong>your actual wishlist</strong> — including names, pictures, prices and store links. Friends can view it without signing in.</p>
+      <div class="share-preview"><span class="share-emoji">🎁</span><div><strong id="sharePreviewTitle">Christmas wishlist</strong><small id="sharePreviewCount">0 gifts · view only</small></div></div>
+      <label class="field" for="shareUrl"><span style="display:block;font-size:12px;font-weight:900;color:#435e4d;margin-bottom:6px">Your shareable wishlist link</span></label>
+      <textarea id="shareUrl" class="share-url-box" readonly spellcheck="false" aria-label="Shareable wishlist URL"></textarea>
+      <div class="share-buttons"><button type="button" class="primary-btn" id="copyShareButton">📋 Copy link</button><button type="button" class="secondary-btn" id="nativeShareButton">↗ Send it</button><button type="button" class="secondary-btn" id="previewShareButton">👀 Preview</button></div>
+      <p class="share-feedback" id="shareFeedback" aria-live="polite"></p>
+      <p class="share-explain"><b>Important:</b> Copy and send this entire link, not just the website address. It shows a <b>read-only snapshot</b> of your gifts. If you edit your list later, generate a fresh link. Your own edits are saved on this device.</p>
+    </div>
+  </dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script>
   (() => {
@@ -206,24 +224,46 @@
     const formatMoney = n => new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:Number.isInteger(n)?0:2}).format(n);
     let state = { owner:'', items:[] }, filter = 'all', toastTimer, sharedView = false;
     try { const saved = JSON.parse(localStorage.getItem(KEY)); if(saved && Array.isArray(saved.items)) state = {owner:typeof saved.owner==='string'?saved.owner.slice(0,40):'', items:saved.items.filter(x => x && typeof x.name==='string')}; } catch(e) { /* Private browsing may block storage. */ }
-    // A shared link is a read-only snapshot. It never overwrites the viewer's local wishlist.
-    if (location.hash.startsWith('#list=')) {
+    // Keep the owner's editable list in localStorage; a shared URL holds its own read-only snapshot.
+    function urlBytes(base64) {
+      if(!/^[A-Za-z0-9_-]+$/.test(base64) || base64.length>100000) throw new Error('Invalid link');
+      const raw=atob(base64.replace(/-/g,'+').replace(/_/g,'/')+'='.repeat((4-base64.length%4)%4));
+      return Uint8Array.from(raw,c=>c.charCodeAt(0));
+    }
+    function base64Url(bytes) {
+      let binary='';for(const n of bytes)binary+=String.fromCharCode(n);
+      return btoa(binary).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+    }
+    function validateSnapshot(data) {
+      if(!data||!Array.isArray(data.items)||data.items.length>150) throw new Error('Invalid list');
+      return {owner:typeof data.owner==='string'?data.owner.slice(0,40):'',items:data.items.filter(x=>x&&typeof x.name==='string').map((x,i)=>({
+        id:String(i),name:x.name.slice(0,100),category:typeof x.category==='string'?x.category.slice(0,40):'Other',
+        priority:['must','love','fun'].includes(x.priority)?x.priority:'love',
+        price:typeof x.price==='number'&&Number.isFinite(x.price)&&x.price>=0&&x.price<=1000000?x.price:null,
+        store:typeof x.store==='string'?x.store.slice(0,60):'',link:typeof x.link==='string'?x.link.slice(0,2048):'',
+        image:typeof x.image==='string'?x.image.slice(0,2048):'',notes:typeof x.notes==='string'?x.notes.slice(0,400):'',createdAt:i
+      }))};
+    }
+    async function loadSharedUrl() {
+      const packed=location.hash.startsWith('#s=');
+      const legacy=location.hash.startsWith('#list=');
+      if(!packed&&!legacy) return;
       try {
-        const payload = location.hash.slice(6);
-        if (payload.length > 45000) throw new Error('List too large');
-        const bytes = Uint8Array.from(atob(payload.replace(/-/g,'+').replace(/_/g,'/')), c=>c.charCodeAt(0));
-        const data = JSON.parse(new TextDecoder().decode(bytes));
-        if (!data || !Array.isArray(data.items) || data.items.length > 150) throw new Error('Invalid list');
-        state = {owner:typeof data.owner==='string'?data.owner.slice(0,40):'', items:data.items.filter(x=>x&&typeof x.name==='string').map((x,i)=>({
-          id:String(i),name:x.name.slice(0,100),category:typeof x.category==='string'?x.category.slice(0,40):'Other',
-          priority:['must','love','fun'].includes(x.priority)?x.priority:'love',
-          price:typeof x.price==='number'&&Number.isFinite(x.price)&&x.price>=0&&x.price<=1000000?x.price:null,
-          store:typeof x.store==='string'?x.store.slice(0,60):'',link:typeof x.link==='string'?x.link.slice(0,2048):'',
-          image:typeof x.image==='string'?x.image.slice(0,2048):'',notes:typeof x.notes==='string'?x.notes.slice(0,400):'',
-          createdAt:i
-        }))};
+        const bytes=urlBytes(location.hash.slice(packed?3:6));
+        let json;
+        if(packed) {
+          if(typeof DecompressionStream==='undefined') throw new Error('Cannot open compressed list in this browser');
+          json=await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+          if(json.length>160000) throw new Error('Too many gifts');
+        } else json=new TextDecoder().decode(bytes);
+        state=validateSnapshot(JSON.parse(json));
         sharedView=true;
-      } catch(e) { location.hash=''; }
+        enableSharedView();
+        render();
+      }catch(e){
+        $('heroDescription').textContent='This wishlist link could not be opened. Ask the sender to copy a fresh share link.';
+        notify('That shared link is invalid or incomplete.');
+      }
     }
     function persist() { if(sharedView) return; try { localStorage.setItem(KEY,JSON.stringify(state)); } catch(e){ notify('This browser could not save your changes. Try a regular browser tab.'); } }
     function safeUrl(raw) { if(!raw || typeof raw!=='string') return ''; try { const u = new URL(raw.trim()); return (u.protocol==='https:' || u.protocol==='http:') ? u.href : ''; } catch(e) { return ''; } }
@@ -271,20 +311,54 @@
     document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',ev=>{if(ev.target===d)d.close();}));
     function shareText(){const heading=state.owner?`${state.owner}'s Christmas Wishlist 🎄`:'My Christmas Wishlist 🎄';return [heading,'',...state.items.map((x,i)=>`${i+1}. ${x.name}${x.priority==='must'?' ⭐ TOP PICK':''}${x.price!==null&&x.price!==undefined?' — '+formatMoney(Number(x.price)):''}${x.store?' ('+x.store+')':''}${x.notes?'\n   '+x.notes:''}${safeUrl(x.link)?'\n   '+safeUrl(x.link):''}`),'','Made with the nice list ♡'].join('\n');}
     function copyFallback(text){const area=document.createElement('textarea');area.value=text;area.style.cssText='position:fixed;left:-9999px;top:0';document.body.appendChild(area);area.select();let success=false;try{success=document.execCommand('copy');}catch(e){}area.remove();return success;}
-    function snapshotLink(){
+    async function snapshotLink(){
       if(!/^https?:$/.test(location.protocol)) return '';
-      const bytes=new TextEncoder().encode(JSON.stringify({owner:state.owner,items:state.items.map(({name,category,priority,price,store,link,image,notes})=>({name,category,priority,price,store,link,image,notes}))}));
-      let binary='';for(const byte of bytes)binary+=String.fromCharCode(byte);
-      return location.href.split('#')[0]+'#list='+btoa(binary).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+      const data=JSON.stringify({owner:state.owner,items:state.items.map(({name,category,priority,price,store,link,image,notes})=>({name,category,priority,price,store,link,image,notes}))});
+      const bytes=new TextEncoder().encode(data);
+      let fragment='#list='+base64Url(bytes);
+      if(typeof CompressionStream!=='undefined' && typeof DecompressionStream!=='undefined') {
+        try {
+          const zipped=await new Response(new Blob([bytes]).stream().pipeThrough(new CompressionStream('gzip'))).arrayBuffer();
+          const packed='#s='+base64Url(new Uint8Array(zipped));
+          if(packed.length < fragment.length) fragment=packed;
+        }catch(e){ /* Use the older uncompressed link on browsers without gzip. */ }
+      }
+      return location.href.split('#')[0]+fragment;
     }
+    let activeShareUrl='';
     $('shareButton').addEventListener('click',async()=>{
-      if(!state.items.length){notify('Add a wish first so you have something to share!');return;}
-      const link=snapshotLink(), message=link||shareText();
-      if(link.length>15000){notify('Too many wishes for a share link. Use Download shareable page instead.');return;}
-      if(navigator.share){try{await navigator.share({title:state.owner?state.owner+"'s Christmas Wishlist":'My Christmas Wishlist',...(link?{url:link}:{text:message})});return;}catch(e){if(e.name==='AbortError')return;}}
-      try{await navigator.clipboard.writeText(message);notify(link?'Shareable wishlist link copied! 🎄':'Wishlist text copied! Paste it into a message.');}
-      catch(e){notify(copyFallback(message)?(link?'Shareable link copied!':'Wishlist text copied!'):'Use Download shareable page to send your list.');}
+      if(!state.items.length){notify('Add a gift first so there is something to share!');return;}
+      const button=$('shareButton');button.disabled=true;button.textContent='🎄 Making your link…';
+      try {
+        const link=await snapshotLink();
+        if(!link){notify('Open your live GitHub Pages website to create a share link.');return;}
+        if(link.length>12000){notify('Your wishlist is too big for a reliable message link. Use Download shareable page instead.');return;}
+        activeShareUrl=link;
+        $('shareUrl').value=link;
+        $('sharePreviewTitle').textContent=state.owner?state.owner+"'s Christmas Wishlist":'My Christmas Wishlist';
+        $('sharePreviewCount').textContent=state.items.length+' '+(state.items.length===1?'gift':'gifts')+' · view only';
+        $('shareFeedback').textContent='';
+        $('shareDialog').showModal();
+      }catch(e){notify('Could not create a link. Try downloading your list instead.');}
+      finally{button.disabled=false;button.textContent=sharedView?'↗ Share this list':'🎁 Get a shareable link';}
     });
+    $('copyShareButton').addEventListener('click',async()=>{
+      if(!activeShareUrl)return;
+      let copied=false;
+      try{await navigator.clipboard.writeText(activeShareUrl);copied=true;}catch(e){copied=copyFallback(activeShareUrl);}
+      if(copied){$('shareFeedback').textContent='✅ Link copied! Paste it into a text or DM.';notify('Copied! 🎁 Your gifts are inside this link.');}
+      else{$('shareUrl').focus();$('shareUrl').select();$('shareFeedback').textContent='Select and copy the whole link above.';}
+    });
+    $('nativeShareButton').addEventListener('click',async()=>{
+      if(!activeShareUrl)return;
+      if(navigator.share){
+        try{await navigator.share({title:state.owner?state.owner+"'s Christmas Wishlist":'Christmas Wishlist',text:'🎄 Here is my Christmas wishlist!\n'+activeShareUrl});return;}
+        catch(e){if(e.name==='AbortError')return;}
+      }
+      let copied=false;try{await navigator.clipboard.writeText(activeShareUrl);copied=true;}catch(e){copied=copyFallback(activeShareUrl);}
+      $('shareFeedback').textContent=copied?'✅ Link copied! Paste it into a message.':'Copy the full link above and send it.';
+    });
+    $('previewShareButton').addEventListener('click',()=>{if(activeShareUrl)window.open(activeShareUrl,'_blank','noopener,noreferrer');});
     function downloadFile(name,html){const blob=new Blob([html],{type:'text/html;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000);}
     function exportPage(){
       const title=escapeHtml(state.owner?state.owner+"'s Christmas Wishlist":'My Christmas Wishlist');
@@ -294,7 +368,7 @@
     $('downloadButton').addEventListener('click',()=>{if(!state.items.length){notify('Add a wish first, then download your list!');return;}const name=state.owner.trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'my';downloadFile(name+'-christmas-list.html',exportPage());notify('Your shareable page is ready! 🎅');});
     $('printButton').addEventListener('click',()=>window.print());
     const today=new Date(),year=today.getFullYear();$('yearLabel').textContent=String(year);const christmas=new Date(year,11,25);if(today.getMonth()===11&&today.getDate()===25){$('countdownLabel').textContent='Merry Christmas! 🎄';}else{if(today>christmas)christmas.setFullYear(year+1);const days=Math.ceil((new Date(christmas.getFullYear(),christmas.getMonth(),christmas.getDate())-new Date(today.getFullYear(),today.getMonth(),today.getDate()))/86400000);$('countdownLabel').textContent=`${days} days until Christmas`; $('yearLabel').textContent=String(christmas.getFullYear());}
-    if(sharedView){
+    function enableSharedView(){
       document.querySelector('.brand').addEventListener('click', ev=>{ev.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
       $('addItemButton').hidden=true;
       $('editNameButton').hidden=true;
@@ -306,6 +380,7 @@
       $('shareButton').textContent='↗ Share this list';
       $('downloadButton').textContent='⇩ Download this list';
     }
+    loadSharedUrl();
     render();
   })();
   </script>
