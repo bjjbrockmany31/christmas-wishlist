@@ -173,6 +173,42 @@
     @media(max-width:950px){.ideas-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
     @media(max-width:650px){.finder-panel{padding:21px 17px 24px;margin-top:17px}.finder-inputs{grid-template-columns:1fr 1fr;gap:10px}.finder-inputs .field:last-child{grid-column:1/-1}.ideas-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.idea-card{padding:12px}.idea-emoji{margin-bottom:9px}.idea-title{font-size:13px}.finder-lastrow .field{min-width:100%}.finder-lastrow .primary-btn{width:100%}.hobby-chip{padding:9px 11px}}
     @media(max-width:380px){.ideas-grid{grid-template-columns:1fr}.idea-buttons{grid-template-columns:1fr auto}}
+
+    /* Store-specific search and real product-link previews; no scraping secrets in a static website. */
+    .shop-studio{margin-top:22px;padding:20px;border-radius:17px;background:#f4f7f1;border:1px solid #dfe7db}
+    .shop-studio h3{font:normal 23px Georgia,serif;margin:0 0 6px;color:var(--deep)}
+    .shop-studio p{font-size:12px;color:#637a66;margin:0 0 14px}
+    .retailer-search{display:grid;grid-template-columns:1fr auto;gap:9px;align-items:end}
+    .retailer-search input,.product-import input{background:#fff;width:100%;min-width:0;min-height:44px;border-radius:10px;border:1px solid #d1dbd1;padding:10px 12px;color:var(--ink)}
+    .store-chips{display:flex;gap:7px;flex-wrap:wrap;margin:11px 0}
+    .store-chip{font-size:12px;border-radius:10px;background:#fff;color:#395845;font-weight:850;border:1px solid #d6dfd4;padding:9px 12px;cursor:pointer}
+    .store-chip[aria-pressed=true]{background:var(--green);color:#fff;border-color:var(--green)}
+    .store-chips a{font-size:12px}
+    .search-help{font-size:11px;color:#687b69;margin-bottom:0!important}
+    .product-import{border-top:1px solid #dce5da;padding-top:17px;margin-top:17px}
+    .import-row{display:grid;grid-template-columns:1fr auto;align-items:end;gap:8px}
+    .import-fields{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:11px 0}
+    .import-preview{border-radius:14px;padding:13px;margin-top:12px;display:grid;grid-template-columns:95px minmax(0,1fr);gap:14px;align-items:center;background:white;border:1px solid #e3e8e0}
+    .import-preview img{width:95px;height:102px;object-fit:contain;background:#f3f6f1;border-radius:9px}
+    .import-preview h4{font-size:14px;margin:0 0 8px;line-height:1.35;color:var(--deep);overflow-wrap:anywhere}
+    .import-preview label{font-size:11px;display:block;font-weight:800;margin-bottom:4px}
+    .import-preview .field{margin:0 0 8px}
+    .import-preview input{font-size:12px;min-height:37px;padding:7px 9px}
+    .import-preview .primary-btn{padding:10px 13px;font-size:12px}
+    .import-status{font-size:12px!important;line-height:1.45;margin:10px 0 0!important;min-height:18px}
+    .store-select{border:1px solid #d9e1d4;color:#355540;border-radius:8px;min-width:0;max-width:100%;padding:8px 6px;font-size:11px;background:white;font-weight:800}
+    .idea-store-row{display:grid;grid-template-columns:1fr auto;gap:5px;margin:0 0 10px;align-items:center}
+    .idea-shop{font-size:11px;padding:8px 2px}
+    .idea-photo{width:100%;aspect-ratio:1.36;background:linear-gradient(130deg,#ecf2e9,#fff5df);border-radius:12px;margin:0 0 12px;display:grid;place-items:center;position:relative;overflow:hidden}
+    .idea-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+    .idea-photo .idea-emoji{background:none!important;width:auto;height:auto;font-size:46px;margin:0}
+    .idea-photo small{position:absolute;bottom:5px;left:6px;padding:3px 5px;border-radius:5px;background:#fffffff0;color:#354835;font-size:9px;display:none}
+    .idea-photo:has(img) small{display:block}
+    .photo-credit{font-size:9px;color:#647565;display:block;margin:-7px 0 8px;text-decoration:underline;text-underline-offset:2px}
+    .photo-credit:hover{color:#194c3b}
+    .idea-buttons{display:block}
+    .idea-add{width:100%;min-height:39px}
+    @media(max-width:650px){.shop-studio{padding:15px}.retailer-search,.import-row{grid-template-columns:1fr}.shop-studio .primary-btn{width:100%}.import-fields{grid-template-columns:1fr}.import-preview{grid-template-columns:75px minmax(0,1fr);gap:9px}.import-preview img{width:75px;height:90px}.idea-photo{aspect-ratio:1.1}.idea-photo .idea-emoji{font-size:33px}.store-select{font-size:10px;padding:7px 2px}.idea-shop{font-size:10px}}
     @media print {.finder-panel{display:none!important}}
     [hidden] {display:none!important;}
     @media print {body{background:#fff}.topbar,.outline-btn,.primary-btn,.controls,.sidebar .summary-actions,.tip-box,.card-actions,footer,.toast,.close{display:none!important}.shell{width:100%}.hero{min-height:160px;box-shadow:none}.hero-content{padding:25px 38px}.hero-art{display:none}.main-grid{display:block;margin:22px 0}.sidebar{margin-top:15px}.summary{box-shadow:none}.gift-card{break-inside:avoid}.list{grid-template-columns:repeat(3,1fr)}.empty{display:none}}
@@ -210,11 +246,52 @@
         <div class="hobby-cloud" id="hobbyCloud" aria-label="Choose hobbies"></div>
         <div class="finder-lastrow"><div class="field"><label for="finderOther">Something else you're into?</label><input id="finderOther" maxlength="120" placeholder="e.g. anime, chess, volleyball" autocomplete="off"><span class="form-help">Separate hobbies with commas. We’ll suggest ideas for those, too.</span></div><button class="primary-btn" type="submit" id="findGiftsButton">✦ Find my gifts</button></div>
       </form>
-      <p class="finder-note">We match a curated set of ideas to your age, hobbies and budget — not a live product database. <b>Shop options</b> opens current shopping search results; listed prices are rough estimates. Gender is optional and never limits what you can choose. Your preferences stay on this device, not in shared links.</p>
+      <p class="finder-note">Find ideas based on your age, hobbies and budget. Example photos are illustrative, not verified store products. Choose Amazon, Target, Walmart, Best Buy, Etsy or eBay to browse actual listings. Paste a product link below to get its <b>real item photo</b> and quick add it. The site does not have a live retailer product-search API. Prices are estimates. Your preferences stay on this device.</p>
+
+      <section class="shop-studio" id="shopStudio" aria-labelledby="shopStudioHeading">
+        <h3 id="shopStudioHeading">🛍️ Shop real stores</h3>
+        <p>Search Amazon, Target, Walmart, Best Buy, Etsy or eBay directly. No Google detour.</p>
+        <form id="storeSearchForm" class="retailer-search">
+          <label class="field" style="margin:0"><span style="display:block;font-size:12px;font-weight:850;margin-bottom:6px">What are you looking for?</span><input id="storeSearchQuery" maxlength="100" placeholder="e.g. pink gaming headset, Nike shoes" required></label>
+          <button class="primary-btn" id="searchRetailerButton" type="submit">Search store ↗</button>
+        </form>
+        <div class="store-chips" id="retailerChips" role="group" aria-label="Choose a store to search">
+          <button type="button" class="store-chip" data-retailer="amazon" aria-pressed="true">Amazon</button>
+          <button type="button" class="store-chip" data-retailer="target" aria-pressed="false">Target</button>
+          <button type="button" class="store-chip" data-retailer="walmart" aria-pressed="false">Walmart</button>
+          <button type="button" class="store-chip" data-retailer="bestbuy" aria-pressed="false">Best Buy</button>
+          <button type="button" class="store-chip" data-retailer="etsy" aria-pressed="false">Etsy</button>
+          <button type="button" class="store-chip" data-retailer="ebay" aria-pressed="false">eBay</button>
+        </div>
+        <p class="search-help">Search opens the retailer website. Find an exact item you like, copy its product page link, then paste it below for its picture.</p>
+        <div class="product-import">
+          <h3 style="font-size:19px">📸 Add a real product + picture</h3>
+          <p>Paste an Amazon, Target, Walmart, Etsy, Best Buy or other product URL. We'll try to get its name and picture automatically.</p>
+          <form class="import-row" id="productImportForm">
+            <label class="field" style="margin:0"><span style="display:block;font-size:12px;font-weight:850;margin-bottom:6px">Link to exact item</span><input type="url" id="productImportUrl" placeholder="https://www.amazon.com/dp/..." inputmode="url" maxlength="2048" required></label>
+            <button class="secondary-btn" id="productImportButton" type="submit">✨ Fetch picture</button>
+          </form>
+          <p class="import-status" id="importStatus" role="status" aria-live="polite"></p>
+          <div class="import-preview" id="productPreview" hidden>
+            <img id="previewProductImage" alt="Preview of the selected product" hidden>
+            <span id="previewProductEmoji" style="font-size:45px" aria-hidden="true">🎁</span>
+            <div>
+              <h4 id="previewProductTitle">Product title</h4>
+              <div class="import-fields">
+                <label>Item name<input id="previewProductName" type="text" maxlength="100" required></label>
+                <label>Price (optional)<input id="previewProductPrice" type="number" min="0" max="1000000" step="0.01" placeholder="e.g. 29.99"></label>
+              </div>
+              <label>Picture URL (optional — edit if missing)<input id="previewProductImageUrl" type="url" placeholder="https://.../photo.jpg"></label>
+              <button class="primary-btn" id="addImportedProduct" type="button" style="margin-top:10px">＋ Quick add this exact item</button>
+            </div>
+          </div>
+          <p class="search-help" style="margin-top:8px!important">Photos come from the product page's public metadata; some retailers block previews. If a preview fails, you can still enter the name/picture manually. Photo lookup has a limited free daily quota.</p>
+        </div>
+      </section>
       <div id="finderResults" class="finder-results" hidden>
         <div class="finder-results-top"><div><p class="kicker" style="margin-bottom:4px">MATCHED FOR YOU</p><h3 id="ideasHeading">Your gift ideas 🎅</h3></div><button id="moreGiftIdeas" class="secondary-btn" type="button">🔄 More ideas</button></div>
         <div class="ideas-grid" id="ideasGrid" aria-live="polite"></div>
-        <p class="finder-note" style="margin-top:13px">Tap <b>+ Quick add</b> to save an idea instantly. You can edit its name, exact price or shopping link later. For a specific product, open <b>Shop options ↗</b>.</p>
+        <p class="finder-note" style="margin-top:13px">Tap <b>+ Quick add</b> to save a gift idea. For the exact store item and its photo, choose a store, open a listing, then paste its link in <b>Add a real product + picture</b> above.</p>
       </div>
     </section>
     <main class="main-grid">
@@ -453,17 +530,38 @@
     function paintHobbies(){
       $('hobbyCloud').innerHTML=HOBBIES.map(([id,label])=>`<button type="button" class="hobby-chip" data-hobby="${id}" aria-pressed="${finderProfile.hobbies.includes(id)}">${label}</button>`).join('');
     }
-    function shopSearch(idea){
-      // Clothing search can respect a requested gender/age without hiding any gift ideas.
+    const RETAILERS={
+      amazon:{name:'Amazon',url:q=>'https://www.amazon.com/s?k='+encodeURIComponent(q)},
+      target:{name:'Target',url:q=>'https://www.target.com/s?searchTerm='+encodeURIComponent(q)},
+      walmart:{name:'Walmart',url:q=>'https://www.walmart.com/search?q='+encodeURIComponent(q)},
+      bestbuy:{name:'Best Buy',url:q=>'https://www.bestbuy.com/site/searchpage.jsp?st='+encodeURIComponent(q)},
+      etsy:{name:'Etsy',url:q=>'https://www.etsy.com/search?q='+encodeURIComponent(q)},
+      ebay:{name:'eBay',url:q=>'https://www.ebay.com/sch/i.html?_nkw='+encodeURIComponent(q)}
+    };
+    let chosenRetailer='amazon';
+    const RETAILER_IDS=Object.keys(RETAILERS);
+    function storeUrl(query,store){return RETAILERS[store]?.url(query)||RETAILERS.amazon.url(query);}
+    function shopSearch(idea,store='amazon'){
       let query=idea.name;
       if(idea.category==='Clothes & shoes'){
-        const young=Number(finderProfile.age)<18;
-        const gender=finderProfile.gender;
+        const young=Number(finderProfile.age)<18,gender=finderProfile.gender;
         if(gender==='girl')query+=' '+(young?'teen girls':'women');
         else if(gender==='boy')query+=' '+(young?'teen boys':'men');
         else if(gender==='nonbinary')query+=' unisex';
       }
-      return 'https://www.google.com/search?tbm=shop&q='+encodeURIComponent(query);
+      return storeUrl(query,store);
+    }
+    function getRetailerName(rawUrl){
+      try{
+        const h=new URL(rawUrl).hostname.toLowerCase();
+        if(h==='amazon.com'||h.endsWith('.amazon.com'))return 'Amazon';
+        if(h==='target.com'||h.endsWith('.target.com'))return 'Target';
+        if(h==='walmart.com'||h.endsWith('.walmart.com'))return 'Walmart';
+        if(h==='bestbuy.com'||h.endsWith('.bestbuy.com'))return 'Best Buy';
+        if(h==='etsy.com'||h.endsWith('.etsy.com'))return 'Etsy';
+        if(h==='ebay.com'||h.endsWith('.ebay.com'))return 'eBay';
+        return h.replace(/^www\./,'').slice(0,60);
+      }catch(e){return 'Online store';}
     }
     const simple=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
     function findMatchingIdeas(){
@@ -512,6 +610,8 @@
       }
       return chosen;
     }
+    const examplePhotos = new Map();
+    const examplePhotoRequests = new Set();
     function showIdeas(){
       $('finderResults').hidden=false;
       const start=(ideaPage*12)%Math.max(foundIdeas.length,1);
@@ -523,9 +623,45 @@
       $('ideasGrid').innerHTML=ideas.length?ideas.map(idea=>{
         const already=saved.has(simple(idea.name));
         const id=foundIdeas.indexOf(idea);
-        return `<article class="idea-card"><div class="idea-emoji" aria-hidden="true">${idea.emoji}</div><h4 class="idea-title">${escapeHtml(idea.name)}</h4><p class="idea-sub">${idea.estimate===null?'Prices vary':`About ${formatMoney(idea.estimate)} · est.`}</p><div class="idea-buttons"><button type="button" class="idea-add" data-quick-add="${id}" ${already?'disabled':''}>${already?'✓ Added':'＋ Quick add'}</button><a class="idea-shop" target="_blank" rel="noopener noreferrer" href="${escapeHtml(shopSearch(idea))}" aria-label="Search current shopping options for ${escapeHtml(idea.name)}">Shop ↗</a></div></article>`;
+        const photo=examplePhotos.get(idea.name);
+        const img=photo?`<img loading="lazy" src="${escapeHtml(photo.url)}" alt="Example image for ${escapeHtml(idea.name)}" onerror="this.remove();">`:'';
+        const credit=photo?.source?`<a class="photo-credit" href="${escapeHtml(photo.source)}" target="_blank" rel="noopener noreferrer">Wikimedia Commons photo credits ↗</a>`:'';
+        return `<article class="idea-card"><div class="idea-photo" data-photo-idea="${id}"><span class="idea-emoji" aria-hidden="true">${idea.emoji}</span>${img}<small>Example photo</small></div>${credit}<h4 class="idea-title">${escapeHtml(idea.name)}</h4><p class="idea-sub">${idea.estimate===null?'Prices vary':`About ${formatMoney(idea.estimate)} · est.`}</p><div class="idea-store-row"><select class="store-select" data-store-idea="${id}" aria-label="Choose retailer for ${escapeHtml(idea.name)}">${RETAILER_IDS.map(x=>`<option value="${x}" ${x===chosenRetailer?'selected':''}>${RETAILERS[x].name}</option>`).join('')}</select><a class="idea-shop" target="_blank" rel="noopener noreferrer" href="${escapeHtml(shopSearch(idea,chosenRetailer))}">Shop ↗</a></div><div class="idea-buttons"><button type="button" class="idea-add" data-quick-add="${id}" ${already?'disabled':''}>${already?'✓ Added':'＋ Quick add idea'}</button></div></article>`;
       }).join(''):'<div class="finder-empty">No ideas in that price range. Try Any price or a higher budget 🎁</div>';
       $('moreGiftIdeas').hidden=foundIdeas.length<=12;
+      // Images are Wikimedia Commons *example* photos, not exact products or retailer listings.
+      ideas.forEach(idea=>loadExamplePhoto(idea));
+    }
+    async function loadExamplePhoto(idea){
+      const label=idea.name;
+      if(examplePhotos.has(label)||examplePhotoRequests.has(label))return;
+      examplePhotoRequests.add(label);
+      try{
+        const q=encodeURIComponent(label.replace(/[^a-z0-9 -]/gi,' ').slice(0,70));
+        const url=`https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=${q}&gsrnamespace=6&gsrlimit=2&prop=imageinfo&iiprop=url%7Cextmetadata&iiurlwidth=400&format=json&origin=*`;
+        const controller=new AbortController();
+        const timeout=setTimeout(()=>controller.abort(),8500);
+        let response;
+        try{response=await fetch(url,{signal:controller.signal});}
+        finally{clearTimeout(timeout);}
+        if(!response.ok)return;
+        const json=await response.json();
+        const entries=Object.values(json?.query?.pages||{});
+        const picked=entries.find(x=>{
+          const src=x.imageinfo?.[0]?.thumburl||'';
+          return /^https:\/\/upload\.wikimedia\.org\//.test(src)&&/\.(jpg|jpeg|png)(\/|\?|$)/i.test(src);
+        });
+        const src=picked?.imageinfo?.[0]?.thumburl;
+        if(!src)return;
+        const source='https://commons.wikimedia.org/wiki/'+encodeURIComponent(String(picked.title||'').replaceAll(' ','_'));
+        const license=String(picked.imageinfo?.[0]?.extmetadata?.LicenseShortName?.value||'').slice(0,70);
+        const credit={url:src,source,license};
+        examplePhotos.set(label,credit);
+        document.querySelectorAll('[data-photo-idea]').forEach(el=>{
+          if(foundIdeas[Number(el.dataset.photoIdea)]?.name!==label||el.querySelector('img'))return;
+          const img=document.createElement('img');img.src=src;img.alt='Example image for '+label;img.loading='lazy';img.onerror=()=>img.remove();el.appendChild(img);
+        });
+      }catch(e){/* The emoji fallback works without any image service. */}
     }
     function saveFinderProfile(){
       try{localStorage.setItem(FINDER_KEY,JSON.stringify(finderProfile));}catch(e){}
@@ -557,14 +693,106 @@
       });
       $('finderForm').addEventListener('submit',e=>{e.preventDefault();runGiftFinder();});
       $('moreGiftIdeas').addEventListener('click',()=>{ideaPage++;showIdeas();});
+      $('ideasGrid').addEventListener('change',event=>{
+        const select=event.target.closest('[data-store-idea]');if(!select)return;
+        const idea=foundIdeas[Number(select.dataset.storeIdea)];if(!idea)return;
+        const link=select.closest('.idea-card').querySelector('.idea-shop');
+        link.href=shopSearch(idea,select.value);
+      });
       $('ideasGrid').addEventListener('click',event=>{
         const button=event.target.closest('[data-quick-add]');if(!button||sharedView)return;
         const idea=foundIdeas[Number(button.dataset.quickAdd)];if(!idea)return;
         if(state.items.some(x=>simple(x.name)===simple(idea.name))){showIdeas();return;}
-        const item={id:String(Date.now())+'-'+Math.random().toString(36).slice(2,8),name:idea.name,category:idea.category,priority:'love',price:null,store:'Shopping options',link:shopSearch(idea),image:'',notes:'Suggested by Gift Finder • price shown in suggestions is only an estimate. Edit to add the exact item you want.',createdAt:Date.now()};
-        state.items.push(item);persist();render();showIdeas();notify('Added to your list! 🎁');
+        const store=button.closest('.idea-card').querySelector('[data-store-idea]').value;
+        const sample=examplePhotos.get(idea.name);
+        const item={id:String(Date.now())+'-'+Math.random().toString(36).slice(2,8),name:idea.name,category:idea.category,priority:'love',price:null,store:RETAILERS[store].name,link:shopSearch(idea,store),image:sample?.url||'',notes:sample?('Illustrative example photo: '+sample.source+' ('+(sample.license||'license on source page')+'). Pick an exact item at the store.').slice(0,400):'Gift idea only; pick an exact item from the linked retailer.',createdAt:Date.now()};
+        state.items.push(item);persist();render();showIdeas();notify('Gift idea added! 🎁');
       });
+      setupShopping();
       if(finderProfile.age && (finderProfile.hobbies.length||finderProfile.other)){runGiftFinder();}
+    }
+
+    let importedLink='', importedName='', importedImage='', importedStore='';
+    function setupShopping(){
+      $('retailerChips').addEventListener('click',event=>{
+        const btn=event.target.closest('[data-retailer]');if(!btn)return;
+        chosenRetailer=btn.dataset.retailer;
+        $('retailerChips').querySelectorAll('[data-retailer]').forEach(el=>el.setAttribute('aria-pressed',String(el===btn)));
+        const current=$('storeSearchQuery').value.trim();
+        if(current)$('searchRetailerButton').textContent='Search '+RETAILERS[chosenRetailer].name+' ↗';
+        $('ideasGrid').querySelectorAll('[data-store-idea]').forEach(sel=>{
+          sel.value=chosenRetailer;
+          const idea=foundIdeas[Number(sel.dataset.storeIdea)];
+          if(idea)sel.closest('.idea-card').querySelector('.idea-shop').href=shopSearch(idea,chosenRetailer);
+        });
+      });
+      $('storeSearchForm').addEventListener('submit',event=>{
+        event.preventDefault();
+        const query=$('storeSearchQuery').value.trim().slice(0,100);
+        if(!query)return;
+        const url=storeUrl(query,chosenRetailer);
+        const tab=window.open(url,'_blank','noopener,noreferrer');
+        if(!tab)notify('Pop-up blocked — allow this site to open shopping pages.');
+      });
+      $('productImportForm').addEventListener('submit',event=>{event.preventDefault();fetchImportedProduct();});
+      $('previewProductImageUrl').addEventListener('change',syncImportedImage);
+      $('addImportedProduct').addEventListener('click',saveImportedProduct);
+    }
+    function syncImportedImage(){
+      const value=safeUrl($('previewProductImageUrl').value.trim());
+      importedImage=value;
+      $('previewProductImage').hidden=!value;
+      $('previewProductEmoji').hidden=!!value;
+      if(value)$('previewProductImage').src=value;
+    }
+    function showImportPreview(name,image,link){
+      importedName=name||'New gift';importedImage=safeUrl(image)||'';importedLink=link;
+      $('previewProductName').value=importedName.slice(0,100);
+      $('previewProductTitle').textContent=importedName.slice(0,140);
+      $('previewProductImageUrl').value=importedImage;
+      $('previewProductPrice').value='';
+      $('previewProductImage').onerror=()=>{$('previewProductImage').hidden=true;$('previewProductEmoji').hidden=false;};
+      $('productPreview').hidden=false;
+      syncImportedImage();
+    }
+    async function fetchImportedProduct(){
+      const link=safeUrl($('productImportUrl').value);
+      if(!link){$('importStatus').textContent='Please paste a valid https:// product link.';return;}
+      importedLink=link;importedStore=getRetailerName(link);
+      $('productPreview').hidden=true;
+      const button=$('productImportButton');button.disabled=true;button.textContent='Finding picture…';
+      $('importStatus').textContent='Fetching public product photo and title…';
+      try{
+        // Microlink is a public metadata service with a small free quota. No keys or scraping proxies.
+        const controller=new AbortController(),t=setTimeout(()=>controller.abort(),14000);
+        let response;
+        try{response=await fetch('https://api.microlink.io?url='+encodeURIComponent(link),{signal:controller.signal});}
+        finally{clearTimeout(t);}
+        const json=await response.json();
+        if(!response.ok||json.status!=='success')throw new Error(json.message||'Preview unavailable');
+        const title=String(json.data?.title||'').replace(/\s*\|\s*Amazon.*$/i,'').slice(0,140).trim();
+        const image=safeUrl(json.data?.image?.url||'');
+        showImportPreview(title||'New gift',image,link);
+        $('importStatus').textContent=image?'Found a product image! Double-check the name, then tap Quick add.':'Found a title, but no product photo. Paste a picture URL if you want one.';
+      }catch(e){
+        showImportPreview('New gift','',link);
+        $('importStatus').textContent='Preview blocked or unavailable. Fill in the name and optional picture URL, then tap Quick add. The product link is kept.';
+      }finally{button.disabled=false;button.textContent='✨ Fetch picture';}
+    }
+    function saveImportedProduct(){
+      if(sharedView)return;
+      const name=$('previewProductName').value.trim();
+      if(!name){$('previewProductName').focus();notify('Give your new gift a name first.');return;}
+      const image=safeUrl($('previewProductImageUrl').value),priceText=$('previewProductPrice').value.trim();
+      const price=priceText===''?null:Number(priceText);
+      if(price!==null&&(!Number.isFinite(price)||price<0||price>1000000)){notify('Enter a valid price.');return;}
+      if(state.items.some(x=>x.link===importedLink)){notify('This exact product is already on your list!');return;}
+      state.items.push({id:String(Date.now())+'-'+Math.random().toString(36).slice(2,8),name:name.slice(0,100),category:'Other',priority:'love',price,store:importedStore.slice(0,60),link:importedLink,image:image||'',notes:'Exact product added from '+importedStore+'.',createdAt:Date.now()});
+      persist();render();if(foundIdeas.length)showIdeas();
+      $('importStatus').textContent='✅ Added '+name.slice(0,50)+' to your wishlist with its product link!';
+      $('productPreview').hidden=true;
+      $('productImportUrl').value='';
+      notify('Exact gift added! 🎁');
     }
     function persist() { if(sharedView) return; try { localStorage.setItem(KEY,JSON.stringify(state)); } catch(e){ notify('This browser could not save your changes. Try a regular browser tab.'); } }
     function safeUrl(raw) { if(!raw || typeof raw!=='string') return ''; try { const u = new URL(raw.trim()); return (u.protocol==='https:' || u.protocol==='http:') ? u.href : ''; } catch(e) { return ''; } }
